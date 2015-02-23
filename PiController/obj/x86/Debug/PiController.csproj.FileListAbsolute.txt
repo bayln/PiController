@@ -1,0 +1,8 @@
+U:\PiControlProject\PiController\PiController\obj\x86\Debug\PiController.csprojResolveAssemblyReference.cache
+U:\PiControlProject\PiController\PiController\bin\Debug\PiController.exe
+U:\PiControlProject\PiController\PiController\bin\Debug\PiController.pdb
+U:\PiControlProject\PiController\PiController\bin\Debug\Tamir.SharpSSH.dll
+U:\PiControlProject\PiController\PiController\bin\Debug\DiffieHellman.dll
+U:\PiControlProject\PiController\PiController\bin\Debug\Org.Mentalis.Security.dll
+U:\PiControlProject\PiController\PiController\obj\x86\Debug\PiController.exe
+U:\PiControlProject\PiController\PiController\obj\x86\Debug\PiController.pdb

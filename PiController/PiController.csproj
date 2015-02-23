@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75C90741-C551-41D8-8639-32954CCBF40C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PiController</RootNamespace>
+    <AssemblyName>PiController</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tamir.SharpSSH">
+      <HintPath>..\..\SharpSSH-1.1.1.13.bin\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Network\Overlay.cs" />
+    <Compile Include="PiClasses\Command.cs" />
+    <Compile Include="PiClasses\Install.cs" />
+    <Compile Include="PiClasses\RaspberryPi.cs" />
+    <Compile Include="PiClasses\Reboot.cs" />
+    <Compile Include="PiClasses\Setup.cs" />
+    <Compile Include="PiClasses\OpenShell.cs" />
+    <Compile Include="PiClasses\Status.cs" />
+    <Compile Include="PiClasses\Transfer.cs" />
+    <Compile Include="PiClasses\Update.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadPool\Task.cs" />
+    <Compile Include="ThreadPool\ThreadPoolManager.cs" />
+    <Compile Include="ThreadPool\TaskRegistry.cs" />
+    <Compile Include="ThreadPool\WorkerThread.cs" />
+    <Compile Include="Utilities\InfoMenu.cs" />
+    <Compile Include="Utilities\InstallMenu.cs" />
+    <Compile Include="Utilities\InteractiveCommandParser.cs" />
+    <Compile Include="Utilities\MainMenu.cs" />
+    <Compile Include="Utilities\Menu.cs" />
+    <Compile Include="Utilities\RebootMenu.cs" />
+    <Compile Include="Utilities\SetupMenu.cs" />
+    <Compile Include="Utilities\ShellMenu.cs" />
+    <Compile Include="Utilities\StatusMenu.cs" />
+    <Compile Include="Utilities\TransferMenu.cs" />
+    <Compile Include="Utilities\UpdateMenu.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
