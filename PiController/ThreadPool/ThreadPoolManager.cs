@@ -41,9 +41,33 @@ namespace PiController.ThreadPool
         {
             while (true)
             {
-                WorkerThread current;
+                bool startThread = false;
+                Task taskToDo;
+                this.threadQueue.TryPeek(out taskToDo);
+                if (taskToDo != null)
+                {
+                    while (!startThread)
+                    {
+                        WorkerThread current;
+                        this.threadPool.TryDequeue(out current);
+                        if (current != null)
+                        {
+                            startThread = true;
+                            current.setGetTask(true);
+                        }
+                    }
+                }  
             }
         }
+
+        public void addBackToQueue(WorkerThread thread)
+        {
+            lock (threadPool)
+            {
+                this.threadPool.Enqueue(thread);
+            }
+        }
+
 
 
         public void populateThreadPool()
@@ -58,30 +82,12 @@ namespace PiController.ThreadPool
         public void startThreadPool()
         {
             foreach (WorkerThread thread in this.threadPool)
-                thread.start();
+            {
+                thread.startThread();
+            }
             this.started = true;
         }
 
-        public void runThread()
-        {
-            // Threads will continue to run in the runThread method until quit command is initiated
-            // This is threadsafe w/o locks because it is a concurrent queue
-            while (true)
-            {
-                Task task = null;
-
-
-                    if (this.threadQueue.TryPeek(out task))
-                        this.threadQueue.TryDequeue(out task);    
-
-                    if(task != null)
-                    task.executeTask();
-
-              }           
-
-
-            
-        }
 
         public bool threadsActive()
         {
