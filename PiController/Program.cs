@@ -30,7 +30,7 @@ namespace PiController
             int alive = online.Count;
             // Step 2: Create threadpool
             ThreadPoolManager threadPool = new ThreadPoolManager();
-            threadPool.startThreadPool();                        
+            threadPool.startThreadPool();
             Console.WriteLine("\n"); 
             // Step 3: Create Interactive command parser
             InteractiveCommandParser parser = new InteractiveCommandParser(ref overlay, ref threadPool);

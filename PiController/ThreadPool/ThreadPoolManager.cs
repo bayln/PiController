@@ -20,6 +20,8 @@ namespace PiController.ThreadPool
         private ConcurrentQueue<WorkerThread> threadPool;
         private ConcurrentQueue<Task> threadQueue;
         private TaskRegistry registry;
+        private Thread checkerThread;
+        private ThreadStart checkerThreadStart;
 
         /* Constructors */
         public ThreadPoolManager()
@@ -28,7 +30,11 @@ namespace PiController.ThreadPool
             this.threadQueue = new ConcurrentQueue<Task>();
             this.registry = new TaskRegistry();
             this.started = false;
-            populateThreadPool();            
+            this.checkerThreadStart = new ThreadStart(idleThreadStart);
+            this.checkerThread = new Thread(checkerThreadStart);
+            
+            this.populateThreadPool();
+            this.checkerThread.Start();
         }
 
 
